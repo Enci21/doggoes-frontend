@@ -1,23 +1,39 @@
 import React, {useState} from "react";
+import Axios from "axios";
 import './regForm.css';
 
 function RegistrationForm() {
+
     const [user, setUser] = useState({username: "", password: "", email: ""});
+    const [fieldName, setFieldName] = useState("");
+    const showUserDetails = e => {
+        e.preventDefault();
+        Axios.post("http://localhost:8080/registration", user)
+            .then(response => {
+                if (response.status) {
+                    alert("OK");
+                }
+            })
+            .catch(error => alert(error));
+    };
 
     return (
-        <div className="reg-card">
-            <p className="input-names">Registration</p>
-            <form>
-                <div>
+        <fieldset className="reg-card">
+            <p className="input-names">Sign up</p>
+            <form onSubmit={showUserDetails}>
+                <fieldset>
                     <input
+                        onClick={() => document.querySelector("#username").classList.add("label")}
                         required
+                        id="username"
+                        name="username"
                         className="input"
                         type="text"
                         value={user.username}
                         placeholder="Username"
                         onChange={event => setUser({...user, username: event.target.value})}
                     />
-                </div>
+                </fieldset>
                 <div>
                     <input
                         required
@@ -38,9 +54,11 @@ function RegistrationForm() {
                         onChange={event => setUser({...user, email: event.target.value})}
                     />
                 </div>
-                <input type="submit" value="Registration" className="button" style={{marginBottom: "10%"}}/>
+                <div>
+                    <input type="submit" value="Registration" className="button" style={{marginBottom: "10%"}}/>
+                </div>
             </form>
-        </div>
+        </fieldset>
     );
 }
 

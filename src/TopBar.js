@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function TopBar() {
 
     return (
@@ -8,7 +7,5 @@ function TopBar() {
             <img src="logo1.png" className="logo"/>
         </div>
     );
-
 }
-
 export default TopBar;
