@@ -1,11 +1,13 @@
 import React from "react";
 
+
 function TopBar() {
 
     return (
-        <div className="top-bar">
-            <img src="logo1.png" className="logo"/>
+        <div>
+            <img src="logo1.png" className="logo" alt=""/>
         </div>
     );
 }
+
 export default TopBar;

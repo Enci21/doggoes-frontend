@@ -5,7 +5,6 @@ import './regForm.css';
 function RegistrationForm() {
 
     const [user, setUser] = useState({username: "", password: "", email: ""});
-    const [fieldName, setFieldName] = useState("");
     const showUserDetails = e => {
         e.preventDefault();
         Axios.post("http://localhost:8080/registration", user)
@@ -21,19 +20,16 @@ function RegistrationForm() {
         <fieldset className="reg-card">
             <p className="input-names">Sign up</p>
             <form onSubmit={showUserDetails}>
-                <fieldset>
                     <input
-                        onClick={() => document.querySelector("#username").classList.add("label")}
                         required
-                        id="username"
                         name="username"
+                        id="username"
                         className="input"
                         type="text"
                         value={user.username}
                         placeholder="Username"
                         onChange={event => setUser({...user, username: event.target.value})}
                     />
-                </fieldset>
                 <div>
                     <input
                         required

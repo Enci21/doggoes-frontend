@@ -26,6 +26,7 @@
 .input-names {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
+    font-family: 'Raleway', sans-serif;
     box-sizing: content-box;
     border: none;
     margin-top: 8px;
@@ -56,7 +57,7 @@
     border-radius: 5px;
 }
 
-.label {
+.inner-label {
     -webkit-box-sizing: content-box;
     display: inline-flex;
     -moz-box-sizing: content-box;
