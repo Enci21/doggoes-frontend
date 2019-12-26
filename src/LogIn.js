@@ -2,16 +2,17 @@ import React, {useState} from "react";
 import Axios from "axios";
 
 
-function LogIn() {
-
+function LogIn(props) {
     const [user, setUser] = useState({username: "", password: ""});
 
     const showUserDetails = e => {
         e.preventDefault();
         Axios.post("http://localhost:8080/auth/signin", user)
             .then(response => {
-                if (response.status) {
+                if (response.status === 200 && response.data.token !== null) {
                     alert("OK");
+                    localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("username", user.username);
                 }
             })
             .catch(error => alert(error));
