@@ -3,6 +3,7 @@ import './App.css';
 import TopBar from "./TopBar";
 import RegistrationForm from "./RegistrationForm";
 import LogIn from "./LogIn";
+import NavigationBar from "./NavigationBar";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
             <Router>
                 <div className="App">
                     <TopBar/>
+                    <NavigationBar/>
                     <Switch>
                         <Route path="/auth/signin" component={LogIn}/>
                         <Route path="/registration" component={RegistrationForm}/>
