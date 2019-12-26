@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -46,9 +46,10 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-function NavigationBar() {
+function NavigationBar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const [username, setUsername] = useState("");
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -57,6 +58,10 @@ function NavigationBar() {
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default">
+                <div>
+                    <input type="text" className="search-bar" placeholder="Search..." value=""/>
+                    <button type="submit" className="nav-button">Search</button>
+                </div>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -66,14 +71,17 @@ function NavigationBar() {
                     textColor="primary"
                     aria-label="scrollable force tabs example"
                 >
-                    <Tab label="Health" icon={<i className={"fas fa-medkit icons"}></i>} {...a11yProps(0)} />
-                    <Tab label="Friends" icon={<i className={"fas fa-paw icons"}></i>} {...a11yProps(1)} />
-                    <Tab label="Places" icon={<i className={"fas fa-map-marker-alt icons"}></i>} {...a11yProps(2)} />
-                    <Tab label="Sport" icon={<i className={"fas fa-baseball-ball icons"}></i>} {...a11yProps(3)} />
-                    <Tab label="Education" icon={<i className={"fas fa-graduation-cap icons"}></i>} {...a11yProps(4)} />
+                    <Tab label="Health" icon={<i className={"fas fa-medkit icons"}/>} {...a11yProps(0)} />
+                    <Tab label="Friends" icon={<i className={"fas fa-paw icons"}/>} {...a11yProps(1)} />
+                    <Tab label="Places" icon={<i className={"fas fa-map-marker-alt icons"}/>} {...a11yProps(2)} />
+                    <Tab label="Sport" icon={<i className={"fas fa-baseball-ball icons"}/>} {...a11yProps(3)} />
+                    <Tab label="Education" icon={<i className={"fas fa-graduation-cap icons"}/>} {...a11yProps(4)} />
                     <Tab label="Care" icon={<FavoriteIcon/>} {...a11yProps(5)} />
-                    <Tab label="News" icon={<i className={"far fa-newspaper icons"}></i>} {...a11yProps(6)} />
-                    <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}></i>} {...a11yProps(6)} />
+                    <Tab label="News" icon={<i className={"far fa-newspaper icons"}/>} {...a11yProps(6)} />
+                    <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}/>} {...a11yProps(7)} />
+                    <Tab label={localStorage.getItem("token") != null ? username : "Log in"}
+                         icon={<i className={"fas fa-smile-beam icons"}/>} {...a11yProps(8)} />
+                    <Tab label="Log out" icon={<i className={"fas fa-sign-out-alt icons"}/>} {...a11yProps(9)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
