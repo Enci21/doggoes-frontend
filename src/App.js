@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import TopBar from "./TopBar";
 import RegistrationForm from "./RegistrationForm";
@@ -7,8 +7,6 @@ import NavigationBar from "./NavigationBar";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
-    const [uName, setUName] = useState(localStorage.getItem("username") || "");
-
     return (
         <>
             <Router>
@@ -16,8 +14,8 @@ function App() {
                     <TopBar/>
                     <NavigationBar/>
                     <Switch>
-                        <Route path="/auth/signin" render={(props) => <LogIn {...props} setUname={setUName}/>}/>
-                        <Route path="/registration" render={(props) => <RegistrationForm {...props} uName={uName}/>}/>
+                        <Route path="/auth/signin" component={LogIn}/>
+                        <Route path="/registration" component={RegistrationForm}/>
                     </Switch>
                 </div>
             </Router>
