@@ -78,7 +78,7 @@ function NavigationBar(props) {
                     <Tab label="Care" icon={<FavoriteIcon/>} {...a11yProps(5)} />
                     <Tab label="News" icon={<i className={"far fa-newspaper icons"}/>} {...a11yProps(6)} />
                     <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}/>} {...a11yProps(7)} />
-                    <Tab label={localStorage.getItem("token") != null ? props.uName : "Log in"}
+                    <Tab label={localStorage.getItem("token") != null ? localStorage.getItem("username") : "Log in"}
                          icon={<i className={"fas fa-smile-beam icons"}/>} {...a11yProps(8)} />
                     <Tab label="Log out" icon={<i className={"fas fa-sign-out-alt icons"}/>} {...a11yProps(9)} />
                     <Tab label="Registration" icon={<i className={"fas fa-registered icons"}/>} {...a11yProps(10)} />

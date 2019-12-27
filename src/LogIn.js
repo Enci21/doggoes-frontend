@@ -13,7 +13,6 @@ function LogIn(props) {
                     alert("OK");
                     localStorage.setItem("token", response.data.token);
                     localStorage.setItem("username", user.username);
-                    props.setUname(localStorage.getItem("username"));
                 }
             })
             .catch(error => alert(error));
