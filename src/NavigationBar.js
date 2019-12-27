@@ -49,6 +49,7 @@ const useStyles = makeStyles(theme => ({
 function NavigationBar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
+    const keysRemove = ["token", "username"];
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -80,7 +81,7 @@ function NavigationBar(props) {
                     <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}/>} {...a11yProps(7)} />
                     <Tab label={localStorage.getItem("username") !== null ? localStorage.getItem("username") : "Log in"}
                          icon={<i className={"fas fa-smile-beam icons"}/>} {...a11yProps(8)} />
-                    <Tab label="Log out" onClick={() => localStorage.removeItem("token")}
+                    <Tab label="Log out" onClick={() => keysRemove.forEach(k => localStorage.removeItem(k))}
                          icon={<i className={"fas fa-sign-out-alt icons"}/>} {...a11yProps(9)} />
                     <Tab label="Registration" icon={<i className={"fas fa-registered icons"}/>} {...a11yProps(10)} />
                 </Tabs>
