@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Axios from "axios";
 
 
-function LogIn(handleUpdateUsername) {
+function LogIn(props) {
     const [user, setUser] = useState({username: "", password: ""});
 
     const showUserDetails = e => {
@@ -13,7 +13,8 @@ function LogIn(handleUpdateUsername) {
                     alert("OK");
                     localStorage.setItem("token", response.data.token);
                     localStorage.setItem("username", user.username);
-                    handleUpdateUsername(localStorage.getItem("username"));
+                    props.handleUpdateUsername(localStorage.getItem("username"));
+                    console.log(props.username);
                 }
             })
             .catch(error => alert(error));

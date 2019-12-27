@@ -20,7 +20,8 @@ function App() {
                     <TopBar/>
                     <NavigationBar/>
                     <Switch>
-                        <Route path="/auth/signin" component={LogIn}/>
+                        <Route path="/auth/signin"
+                               render={(props) => <LogIn {...props} handleUpdateUsername={handleUpdateUsername}/>}/>
                         <Route path="/registration" component={RegistrationForm}/>
                     </Switch>
                 </div>

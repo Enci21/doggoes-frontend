@@ -81,6 +81,7 @@ function NavigationBar(props) {
                     <Tab label={localStorage.getItem("token") != null ? props.username : "Log in"}
                          icon={<i className={"fas fa-smile-beam icons"}/>} {...a11yProps(8)} />
                     <Tab label="Log out" icon={<i className={"fas fa-sign-out-alt icons"}/>} {...a11yProps(9)} />
+                    <Tab label="Registration" icon={<i className={"fas fa-registered icons"}/>} {...a11yProps(10)} />
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
