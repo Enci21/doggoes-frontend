@@ -13,8 +13,7 @@ function LogIn(props) {
                     alert("OK");
                     localStorage.setItem("token", response.data.token);
                     localStorage.setItem("username", user.username);
-                    props.handleUpdateUsername(localStorage.getItem("username"));
-                    console.log(props.username);
+                    props.setUname(localStorage.getItem("username"));
                 }
             })
             .catch(error => alert(error));

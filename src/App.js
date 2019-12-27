@@ -7,11 +7,7 @@ import NavigationBar from "./NavigationBar";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
-    const [username, setUsername] = useState("");
-
-    function handleUpdateUsername(newName) {
-        setUsername(newName);
-    }
+    const [uName, setUName] = useState(localStorage.getItem("username") || "");
 
     return (
         <>
@@ -20,9 +16,8 @@ function App() {
                     <TopBar/>
                     <NavigationBar/>
                     <Switch>
-                        <Route path="/auth/signin"
-                               render={(props) => <LogIn {...props} handleUpdateUsername={handleUpdateUsername}/>}/>
-                        <Route path="/registration" component={RegistrationForm}/>
+                        <Route path="/auth/signin" render={(props) => <LogIn {...props} setUname={setUName}/>}/>
+                        <Route path="/registration" render={(props) => <RegistrationForm {...props} uName={uName}/>}/>
                     </Switch>
                 </div>
             </Router>
