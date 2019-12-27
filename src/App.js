@@ -7,11 +7,11 @@ import NavigationBar from "./NavigationBar";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
-
     const [username, setUsername] = useState("");
-    const handleUpdateUsername = (newName) => {
+
+    function handleUpdateUsername(newName) {
         setUsername(newName);
-    };
+    }
 
     return (
         <>

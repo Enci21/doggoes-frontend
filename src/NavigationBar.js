@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -49,7 +49,6 @@ const useStyles = makeStyles(theme => ({
 function NavigationBar(props) {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
-    const [username, setUsername] = useState("");
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -79,7 +78,7 @@ function NavigationBar(props) {
                     <Tab label="Care" icon={<FavoriteIcon/>} {...a11yProps(5)} />
                     <Tab label="News" icon={<i className={"far fa-newspaper icons"}/>} {...a11yProps(6)} />
                     <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}/>} {...a11yProps(7)} />
-                    <Tab label={localStorage.getItem("token") != null ? username : "Log in"}
+                    <Tab label={localStorage.getItem("token") != null ? props.username : "Log in"}
                          icon={<i className={"fas fa-smile-beam icons"}/>} {...a11yProps(8)} />
                     <Tab label="Log out" icon={<i className={"fas fa-sign-out-alt icons"}/>} {...a11yProps(9)} />
                 </Tabs>
