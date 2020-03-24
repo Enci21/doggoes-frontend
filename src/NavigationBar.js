@@ -57,10 +57,7 @@ function NavigationBar(props) {
     return (
         <div className={classes.root}>
             <AppBar position="static" color="default">
-                <div>
-                    <input type="text" className="search-bar" placeholder="Search..." value=""/>
-                    <button type="submit" className="nav-button">Search</button>
-                </div>
+
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -76,34 +73,49 @@ function NavigationBar(props) {
                     <Tab label="Sport" icon={<i className={"fas fa-baseball-ball icons"}/>} {...a11yProps(3)} />
                     <Tab label="Education" icon={<i className={"fas fa-graduation-cap icons"}/>} {...a11yProps(4)} />
                     <Tab label="Care" icon={<FavoriteIcon/>} {...a11yProps(5)} />
-                    <Tab label="News" icon={<i className={"far fa-newspaper icons"}/>} {...a11yProps(6)} />
+                    <Tab label="News" icon={<i className={"far fa-newspaper icons"}/>}/>
                     <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}/>} {...a11yProps(7)} />
-                    <Tab label={localStorage.getItem("token") != null ? props.uName : "Log in"}
-                         icon={<i className={"fas fa-smile-beam icons"}/>} {...a11yProps(8)} />
-                    <Tab label="Log out" icon={<i className={"fas fa-sign-out-alt icons"}/>} {...a11yProps(9)} />
-                    <Tab label="Registration" icon={<i className={"fas fa-registered icons"}/>} {...a11yProps(10)} />
+                    <div>
+                        <input type="text" className="search-bar" placeholder="Search..." value=""/>
+                        <button type="submit" className="nav-button">Search</button>
+                    </div>
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                Item One
+                Doctors <br/>
+                Pharmacies <br/>
+                Hospitals <br/>
+                Psychologists <br/>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Item Two
             </TabPanel>
             <TabPanel value={value} index={2}>
-                Item Three
+                Hotels <br/>
+                Restaurants <br/>
+                Pubs <br/>
+                Confectioneries <br/>
+                Stores <br/>
             </TabPanel>
             <TabPanel value={value} index={3}>
-                Item Four
+                Dog running parks <br/>
+                Tours <br/>
             </TabPanel>
             <TabPanel value={value} index={4}>
-                Item Five
+                Schools <br/>
+                Trainers <br/>
+                Day cares <br/>
             </TabPanel>
             <TabPanel value={value} index={5}>
-                Item Six
+                Food shops <br/>
+                Equipment <br/>
+                Walkers and babysitters <br/>
+                Cosmetics <br/>
+                Pet shops <br/>
+                Masseures <br/>
             </TabPanel>
             <TabPanel value={value} index={6}>
-                Item Seven
+                Breaking: A koronát nem kapják el a kutyák.
             </TabPanel>
         </div>
     );
