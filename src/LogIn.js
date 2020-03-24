@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Axios from "axios";
 
-
 function LogIn(props) {
     const [user, setUser] = useState({username: "", password: ""});
 
@@ -9,9 +8,8 @@ function LogIn(props) {
         e.preventDefault();
         Axios.post("http://localhost:8080/auth/signin", user)
             .then(response => {
-                if (response.status === 200 && response.data.token !== null) {
+                if (response.status === 200) {
                     alert("OK");
-                    localStorage.setItem("token", response.data.token);
                     localStorage.setItem("username", user.username);
                 }
             })
@@ -23,7 +21,6 @@ function LogIn(props) {
             <p className="input-names" style={{selfAlign: "center"}}>Log in</p>
             <div>
                 <input
-                    style={{marginLeft: "10px", marginRight: "10px"}}
                     required
                     className="input"
                     type="text"
@@ -33,7 +30,6 @@ function LogIn(props) {
             </div>
             <div>
                 <input
-                    style={{marginLeft: "10px", marginRight: "10px"}}
                     required
                     className="input"
                     type="password"
