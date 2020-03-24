@@ -29,14 +29,14 @@
     font-family: 'Raleway', sans-serif;
     box-sizing: content-box;
     border: none;
-    margin-top: 8px;
-    margin-bottom: 8px;
+    margin-top: 0.01%;
+    margin-bottom: 5%;
     font-weight: bold;
     font-size: x-large;
     color: rgba(0, 0, 0, 0.9);
     -o-text-overflow: clip;
     text-overflow: clip;
-    padding-top: 30px;
+    padding-top: 3%;
     text-transform: capitalize;
 }
 
@@ -55,6 +55,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border-radius: 5px;
+    position: center;
 }
 
 .inner-label {
@@ -72,3 +73,21 @@
     padding-top: 30px;
     text-transform: capitalize;
 }
+
+#ln {
+    float: right;
+}
+
+#fn {
+    float: left;
+}
+
+#password {
+    float: right;
+}
+
+#pwagain {
+    float: left;
+}
+
+

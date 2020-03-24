@@ -9,8 +9,42 @@ body {
 
 .logo {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    float: left;
+    margin-left: 5%;
+    width: 15%;
+}
+
+.map {
+    height: 180px;
+}
+
+.leaflet-container {
+    height: 180px;
+}
+
+.top {
+    background-color: #a9e2f7;
+    overflow: hidden;
+    width: 50%;
+    float: right;
+    padding-bottom: 4.55%;
+}
+
+.topWithLogo {
+    background-color: #a9e2f7;
+    overflow: hidden;
+    width: 50%;
+    float: left;
+}
+
+.topButton {
+    float: right;
+    color: #375983;
+    margin-right: 0.1%;
+    font-size: 18px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
 }
 
 .icons {
@@ -80,3 +114,4 @@ body {
     width: 370px;
     border-radius: 4px;
 }
+
