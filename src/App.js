@@ -1,23 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import TopBar from "./TopBar";
 import RegistrationForm from "./RegistrationForm";
 import LogIn from "./LogIn";
 import NavigationBar from "./NavigationBar";
+import Top from "./Top";
+import Geolocation from "./Geolocation";
+import PlaceForm from "./PlaceForm";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
     return (
         <>
+            <Top/>
             <Router>
                 <div className="App">
-                    <TopBar/>
                     <NavigationBar/>
                     <Switch>
-                        <Route path="/auth/signin" component={LogIn}/>
-                        <Route path="/registration" component={RegistrationForm}/>
+                        <Route path="/auth/signin" render={(props) => <LogIn {...props} setUname={setUName}/>}/>
+                        <Route path="/registration" render={(props) => <RegistrationForm {...props} uName={uName}/>}/>
+                        <Route path="/place/new" render={(props) => <PlaceForm {...props} />}/>
                     </Switch>
                 </div>
+                <Geolocation/>
             </Router>
         </>
     );
