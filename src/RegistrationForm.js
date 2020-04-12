@@ -4,7 +4,7 @@ import './regForm.css';
 
 function RegistrationForm() {
 
-    const [user, setUser] = useState({firstname: "", lastname: "", password: "", email: "", pwagain: ""});
+    const [user, setUser] = useState({username: "", password: "", email: "", pwagain: ""});
     const showUserDetails = e => {
         e.preventDefault();
         Axios.post("http://localhost:8080/registration", user)
@@ -20,28 +20,16 @@ function RegistrationForm() {
         <fieldset className="reg-card">
             <p className="input-names">Sign up</p>
             <form onSubmit={showUserDetails}>
-                <div style={{float: "left"}}>
-                    <input
-                        required
-                        name="First name"
-                        id="firstname"
-                        className="input"
-                        type="text"
-                        value={user.firstname}
-                        placeholder="First name"
-                        onChange={event => setUser({...user, firstname: event.target.value})}
-                    />
-                </div>
                 <div style={{float: "right"}}>
                     <input
                         required
-                        name="Last name"
-                        id="lastname"
+                        name="username"
+                        id="username"
                         className="input"
                         type="text"
-                        value={user.lastname}
-                        placeholder="Last name"
-                        onChange={event => setUser({...user, lastname: event.target.value})}
+                        value={user.username}
+                        placeholder="Username"
+                        onChange={event => setUser({...user, username: event.target.value})}
                     />
                 </div>
 

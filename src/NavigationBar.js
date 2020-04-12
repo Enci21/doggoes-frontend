@@ -82,7 +82,7 @@ function NavigationBar(props) {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
-                Doctors <br/>
+                Vet <br/>
                 Pharmacies <br/>
                 Hospitals <br/>
                 Psychologists <br/>
