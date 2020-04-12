@@ -6,13 +6,13 @@ import useSupercluster from "use-supercluster";
 import './App.css';
 
 function Geolocation() {
-    /*const position = navigator.geolocation ?
-        navigator.geolocation.getCurrentPosition((position) => console.log("I'm here:" + position.coords.latitude + position.coords.longitude)) :
+/*    const position = navigator.geolocation ?
+        navigator.geolocation.getCurrentPosition((position) => viewport.latitude= position.coords.latitude && viewport.longitude = position.coords.longitude)) :
         alert("Position not found!");*/
 
     const [viewport, setViewport] = useState({
-        latitude: 47.497913,
-        longitude: 19.040236,
+        latitude: navigator.geolocation.getCurrentPosition((lat) => lat.coords.latitude) || 47.497913,
+        longitude: navigator.geolocation.getCurrentPosition((long) => long.coords.longitude) || 19.040236,
         width: "100%",
         height: "250px",
         zoom: 12
@@ -21,6 +21,7 @@ function Geolocation() {
     const mapRef = useRef();
 
     return (
+
         <ReactMapGl
             {...viewport}
             maxZoom={20}
