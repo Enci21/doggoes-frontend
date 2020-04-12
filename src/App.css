@@ -1,6 +1,8 @@
 .App {
     text-align: center;
     font-family: 'Raleway', sans-serif;
+    background-color: #9fe3f8;
+
 }
 
 body {
@@ -15,7 +17,7 @@ body {
 }
 
 .top {
-    background-color: #44f75f;
+    background-color: #9fe3f8;
     overflow: hidden;
     width: 50%;
     float: right;
