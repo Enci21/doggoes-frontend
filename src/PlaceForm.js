@@ -16,10 +16,11 @@ function PlaceForm() {
     };
 
     return (
-        <fieldset className="reg-card">
+        <fieldset className="place-card">
             <div>
                 <form onSubmit={sendPlaceData}>
                     <input
+                        style={{marginTop: "5%"}}
                         required
                         name="name"
                         id="placename"
@@ -32,24 +33,81 @@ function PlaceForm() {
 
                     <input
                         required
-                        name="address"
-                        id="address"
+                        name="city"
+                        id="city"
                         className="input"
                         type="text"
-                        value={place.address}
-                        placeholder="Address"
-                        onChange={event => setPlace({...place, address: event.target.value})}
+                        value={place.city}
+                        placeholder="City"
+                        onChange={event => setPlace({...place, city: event.target.value})}
                     />
 
                     <input
                         required
-                        name="openingHours"
-                        id="openingHours"
+                        name="street"
+                        id="street"
                         className="input"
                         type="text"
-                        value={place.openingHours}
-                        placeholder="Opening Hours"
-                        onChange={event => setPlace({...place, openingHours: event.target.value})}
+                        value={place.street}
+                        placeholder="Street"
+                        onChange={event => setPlace({...place, street: event.target.value})}
+                    />
+
+                    <input
+                        required
+                        name="state"
+                        id="state"
+                        className="input"
+                        type="text"
+                        value={place.state}
+                        placeholder="State"
+                        onChange={event => setPlace({...place, state: event.target.value})}
+                    />
+
+                    <input
+                        required
+                        name="postal code"
+                        id="postal code"
+                        className="input"
+                        type="number"
+                        value={place.postalCode}
+                        placeholder="Postal code"
+                        onChange={event => setPlace({...place, postalCode: event.target.value})}
+                    />
+
+                    <input
+                        required
+                        name="country"
+                        id="country"
+                        className="input"
+                        type="text"
+                        value={place.country}
+                        placeholder="Country"
+                        onChange={event => setPlace({...place, country: event.target.value})}
+                    />
+
+                    <p style={{fontWeight: 'bold'}}> Opening hours</p>
+                    <input
+                        style={{marginRight: "2%"}}
+                        name="openingHoursFrom"
+                        id="openingHoursFrom"
+                        className="input"
+                        type="time"
+                        min="00:00"
+                        max="23:59"
+                        value={place.openingHoursFrom}
+                        onChange={event => setPlace({...place, openingHoursFrom: event.target.value})}
+                    />
+
+                    <input
+                        name="openingHoursTo"
+                        id="openingHoursTo"
+                        className="input"
+                        type="time"
+                        min="00:00"
+                        max="23:59"
+                        value={place.openingHoursTo}
+                        onChange={event => setPlace({...place, openingHoursTo: event.target.value})}
                     />
 
                     <input

@@ -107,3 +107,20 @@ body {
     border-radius: 4px;
 }
 
+.place-card {
+    background-color: #cc945e;
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 2%;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-border-radius: 5px;
+    color: rgba(0, 0, 0, 0.9);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    position: center;
+}
