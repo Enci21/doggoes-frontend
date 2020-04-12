@@ -9,6 +9,8 @@ import PlaceForm from "./PlaceForm";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
+    const [uName, setUName] = useState({uname: localStorage.getItem("username" || "")});
+
     return (
         <>
             <Top/>
