@@ -20,7 +20,7 @@ function RegistrationForm() {
         <fieldset className="reg-card">
             <p className="input-names">Sign up</p>
             <form onSubmit={showUserDetails}>
-                <div style={{float: "right"}}>
+                <div>
                     <input
                         required
                         name="username"
@@ -33,10 +33,9 @@ function RegistrationForm() {
                     />
                 </div>
 
-                <div style={{float: "left"}}>
+                <div>
                     <input
                         required
-                        className="input"
                         id="password"
                         type="password"
                         value={user.password}
@@ -44,10 +43,9 @@ function RegistrationForm() {
                         onChange={event => setUser({...user, password: event.target.value})}
                     />
                 </div>
-                <div style={{float: "right"}}>
+                <div>
                     <input
                         required
-                        className="input"
                         id="pwagain"
                         type="password"
                         value={user.pwagain}
