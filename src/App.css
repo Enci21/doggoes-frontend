@@ -1,34 +1,20 @@
-.App {
+#root {
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    background-color: #9fe3f8;
-
-}
-
-body {
-    background-color: #53f77d;
+    background-color: rgba(149, 201, 228, 0.7);
 }
 
 .logo {
     display: block;
     float: left;
-    margin-left: 5%;
-    width: 15%;
+    margin-left: 2%;
+    width: 5%;
 }
 
 .top {
-    background-color: #9fe3f8;
     overflow: hidden;
-    width: 50%;
-    float: right;
-    padding-bottom: 4.55%;
-}
+    position: center;
 
-.topWithLogo {
-    background-color: #5af787;
-    overflow: hidden;
-    width: 50%;
-    float: left;
 }
 
 .topButton {
@@ -110,7 +96,7 @@ body {
 }
 
 .place-card {
-    background-color: #cc945e;
+    background-color: #d9c1bf;
     margin-left: 40%;
     margin-right: 40%;
     margin-top: 2%;

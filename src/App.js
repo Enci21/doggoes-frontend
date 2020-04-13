@@ -3,7 +3,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RegistrationForm from "./RegistrationForm";
 import LogIn from "./LogIn";
-import NavigationBar from "./NavigationBar";
 import Top from "./Top";
 import Geolocation from "./Geolocation";
 import PlaceForm from "./PlaceForm";
@@ -17,7 +16,6 @@ function App() {
             <Top/>
             <Router>
                 <div className="App">
-                    <NavigationBar/>
                     <Switch>
                         <Route path="/auth/signin" render={(props) => <LogIn {...props} setUname={setUName}/>}/>
                         <Route path="/registration" render={(props) => <RegistrationForm {...props} uName={uName}/>}/>
