@@ -1,9 +1,9 @@
 import React, {useRef, useState} from "react";
 import ReactMapGl from "react-map-gl";
+
 /*
 import useSupercluster from "use-supercluster";
 */
-import './App.css';
 
 function Geolocation() {
 /*    const position = navigator.geolocation ?
@@ -21,16 +21,19 @@ function Geolocation() {
     const mapRef = useRef();
 
     return (
-
-        <ReactMapGl
-            {...viewport}
-            maxZoom={20}
-            mapboxApiAccessToken={"pk.eyJ1IjoiZW5jaTIxIiwiYSI6ImNrODdjMWE5bTBkNXczZnBycXIycmo5cjgifQ.epS5ZM8enXRO3IvLbWaObQ"}
-            onViewportChange={newViewport => {
-                setViewport({...newViewport});
-            }}
-        >
-        </ReactMapGl>
+        <div className="mapboxgl-map">
+            <ReactMapGl
+                {...viewport}
+                maxZoom={20}
+                mapboxApiAccessToken={"pk.eyJ1IjoiZW5jaTIxIiwiYSI6ImNrODdjMWE5bTBkNXczZnBycXIycmo5cjgifQ.epS5ZM8enXRO3IvLbWaObQ"}
+                mapStyle="mapbox://styles/enci21/ck8xbp6bb43m91ipm1d7xi9uh"
+                onViewportChange={newViewport => {
+                    setViewport({...newViewport});
+                }}
+                ref={mapRef}
+            >
+            </ReactMapGl>
+        </div>
     );
 
 }
