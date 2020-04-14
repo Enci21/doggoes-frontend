@@ -34,8 +34,7 @@ function Top() {
                 <Tab label="Registration" icon={<i className={"fas fa-registered icons"}/>} href="/registration"/>
                 <Tab label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
                      icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
-                <Tab label="Log out"
-                     icon={<i className={"fas fa-times-circle icons"} href="/log/out" onClick={sendLogOut}/>}/>
+                <Tab label="Log out" icon={<i className={"fas fa-times-circle icons"} onClick={sendLogOut}/>}/>
 
 
                 {/*  <h2>

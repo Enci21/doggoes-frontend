@@ -1,5 +1,6 @@
 .input {
     margin-bottom: 7%;
+    position: center;
     display: inline-block;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
@@ -83,12 +84,5 @@
     float: left;
 }
 
-#password {
-    float: right;
-}
-
-#pwagain {
-    float: left;
-}
 
 

@@ -32,11 +32,12 @@ function RegistrationForm() {
                         onChange={event => setUser({...user, username: event.target.value})}
                     />
                 </div>
-
                 <div>
                     <input
                         required
+                        name="password"
                         id="password"
+                        className="input"
                         type="password"
                         value={user.password}
                         placeholder="Password"
@@ -46,13 +47,17 @@ function RegistrationForm() {
                 <div>
                     <input
                         required
+                        name="pwagain"
                         id="pwagain"
+                        className="input"
                         type="password"
                         value={user.pwagain}
                         placeholder="Password again"
                         onChange={event => setUser({...user, pwagain: event.target.value})}
                     />
                 </div>
+
+
                 <div>
                     <input
                         required
