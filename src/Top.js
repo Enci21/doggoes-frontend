@@ -68,7 +68,7 @@ function Top() {
                 <TabPanel value={value} index={2}>
                     Hotels <br/>
                     Restaurants <br/>
-                    Pubs <br/>Geolocation
+                    Pubs <br/>
                     Confectioneries <br/>
                     Stores <br/>
                 </TabPanel>
