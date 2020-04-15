@@ -2,17 +2,13 @@
     text-align: center;
     font-family: 'Raleway', sans-serif;
     background-color: rgba(223, 223, 223, 0.5);
-}
+    cursor: url(paw.png) 4 12, auto !important;
 
+}
 body {
     background-image: url("back.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
-}
-
-Tab {
-    padding-right: 1%;
-    padding-left: 1%;
 }
 
 .logo {
@@ -39,6 +35,8 @@ Tab {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
+    cursor: url(paw.png) 4 12, auto !important;
+
 }
 
 .icons {
@@ -47,6 +45,7 @@ Tab {
 
 .button {
     font-family: 'Raleway', sans-serif;
+    cursor: url(paw.png) 4 12, auto !important;
     font-weight: bold;
     margin-top: 8px;
     display: inline-block;
