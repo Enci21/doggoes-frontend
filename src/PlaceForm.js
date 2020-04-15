@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import Axios from "axios";
+import {Form} from "react-bootstrap";
 
 function PlaceForm() {
-
+    let [types, setTypes] = useState([]);
     const [place, setPlace] = useState({
         name: "",
+        type: "",
         street: "",
         building: "",
         city: "",
@@ -15,6 +17,17 @@ function PlaceForm() {
         openingHoursTo: "",
         number: ""
     });
+
+    const getTypeEnums = e => {
+        e.preventDefault();
+        Axios.get("http://localhost:8080/place/types")
+            .then(response => {
+                setTypes(response.data);
+            })
+            .catch(error => alert("Nem jöttek typok vagy valami" + error));
+    };
+
+
     const sendPlaceData = e => {
         e.preventDefault();
         Axios.post("http://localhost:8080/place/new", place)
@@ -27,9 +40,9 @@ function PlaceForm() {
     };
 
     return (
-        <div>
+        <div className="reg-card" onMouseOver={getTypeEnums}>
             <h1>Please recommend a new place dilom.</h1>
-            <fieldset className="place-card">
+            <fieldset>
                 <div>
                     <form onSubmit={sendPlaceData}>
                         <input
@@ -43,7 +56,15 @@ function PlaceForm() {
                             placeholder="Name"
                             onChange={event => setPlace({...place, name: event.target.value})}
                         />
-
+                        <div className="select">
+                            <Form.Control as="select" value={place.type}
+                                          onChange={event => setPlace({...place, type: event.target.value})}>
+                                <option>Choose type...</option>
+                                {types.map(type => (
+                                    <option style={{fontVariant: "small-caps"}}>{type}</option>
+                                ))}
+                            </Form.Control>
+                        </div>
                         <input
                             required
                             name="street"
@@ -76,7 +97,6 @@ function PlaceForm() {
                             placeholder="City"
                             onChange={event => setPlace({...place, city: event.target.value})}
                         />
-
 
                         <input
                             style={{marginRight: "3%"}}
@@ -154,7 +174,8 @@ function PlaceForm() {
                 </div>
             </fieldset>
         </div>
-    );
+    )
+        ;
 }
 
 export default PlaceForm;

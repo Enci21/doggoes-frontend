@@ -108,20 +108,15 @@ Tab {
     border-radius: 4px;
 }
 
-.place-card {
-    background-color: #92bedb;
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-top: 2%;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    -webkit-border-radius: 5px;
-    color: rgba(0, 0, 0, 0.9);
-    -o-text-overflow: clip;
-    text-overflow: clip;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border-radius: 5px;
+.select {
+    width: 57%;
     position: center;
+    display: inline-block;
+    margin-bottom: 7%;
+    color: rgb(137, 137, 137);
+    font-size: x-small;
+    font-weight: bold;
+    border: 1px solid #b7b7b7;
+    box-shadow: 3px 2px 7px 2px rgba(0, 0, 0, 0.2) inset;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.66);
 }
