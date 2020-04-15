@@ -42,7 +42,8 @@
 }
 
 .reg-card {
-    background-color: #cc945e;
+    background-color: #b8a5a0;
+    opacity: 93%;
     margin-left: 40%;
     margin-right: 40%;
     margin-bottom: 40%;
@@ -76,13 +77,6 @@
     text-transform: capitalize;
 }
 
-#ln {
-    float: right;
-}
-
-#fn {
-    float: left;
-}
 
 
 

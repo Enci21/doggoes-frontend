@@ -93,7 +93,7 @@ function NavigationBar(props) {
             <TabPanel value={value} index={2}>
                 Hotels <br/>
                 Restaurants <br/>
-                Pubs <br/>
+                Pubs <br/>Geolocation
                 Confectioneries <br/>
                 Stores <br/>
             </TabPanel>

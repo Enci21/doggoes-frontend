@@ -22,8 +22,8 @@ function App() {
                         <Route path="/place/new" render={(props) => <PlaceForm {...props} />}/>
                     </Switch>
                 </div>
-                <Geolocation/>
             </Router>
+            <Geolocation/>
         </>
     );
 }

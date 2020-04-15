@@ -25,6 +25,7 @@ function Geolocation() {
             <ReactMapGl
                 {...viewport}
                 maxZoom={20}
+                minZoom={8}
                 mapboxApiAccessToken={"pk.eyJ1IjoiZW5jaTIxIiwiYSI6ImNrODdjMWE5bTBkNXczZnBycXIycmo5cjgifQ.epS5ZM8enXRO3IvLbWaObQ"}
                 mapStyle="mapbox://styles/enci21/ck8xbp6bb43m91ipm1d7xi9uh"
                 onViewportChange={newViewport => {
