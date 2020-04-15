@@ -39,8 +39,7 @@ function Top() {
     return (
         <>
             <div className="top">
-
-                <img src={logo} className="logo"/>
+                <a href="/"> <img src={logo} className="logo"/></a>
                 <Tab label="Health" icon={<i className={"fas fa-medkit icons"} {...a11yProps(0)}/>}/>
                 <Tab label="Friends" icon={<i className={"fas fa-paw icons"}{...a11yProps(1)}/>}/>
                 <Tab label="Places" icon={<i className={"fas fa-map-marker-alt icons"} {...a11yProps(2)}/>}/>
