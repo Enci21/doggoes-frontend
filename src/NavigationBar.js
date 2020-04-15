@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from '@material-ui/core/styles';
@@ -8,7 +9,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-function TabPanel(props) {
+/!*function TabPanel(props) {
     const {children, value, index, ...other} = props;
 
     return (
@@ -44,7 +45,7 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         backgroundColor: theme.palette.background.paper,
     },
-}));
+}));*!/
 
 function NavigationBar(props) {
     const classes = useStyles();
@@ -121,4 +122,4 @@ function NavigationBar(props) {
     );
 }
 
-export default NavigationBar;
+export default NavigationBar;*/
