@@ -5,7 +5,19 @@ import Tab from "@material-ui/core/Tab";
 import './App.css';
 import {Dropdown} from "react-bootstrap";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import {makeStyles} from "@material-ui/core";
 
+const useStyles = makeStyles({
+    dropdown: {
+        float: 'left',
+        padding: '6px, 0px',
+    },
+
+    tab: {
+        minWidth: '85px',
+    },
+
+});
 
 function Top() {
 
@@ -21,14 +33,125 @@ function Top() {
             .catch(error => alert(error));
     };
 
+    const classes = useStyles();
+
+
+    const isLoggedIn = localStorage.getItem("username");
+
+    if (isLoggedIn) {
+        return (
+            <>
+                <div className="#root">
+                    <a href="/"> <img src={logo} className="logo"/></a>
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Health"
+                                 icon={<i className={"fas fa-medkit icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="">Vet</Dropdown.Item>
+                            <Dropdown.Item href="">Pharmacies</Dropdown.Item>
+                            <Dropdown.Item href="">Hospitals</Dropdown.Item>
+                            <Dropdown.Item href="">Psychologists</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Friends"
+                                 icon={<i className={"fas fa-paw icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Places"
+                                 icon={<i className={"fas fa-map-marker-alt icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/place/new">Recommend new place</Dropdown.Item>
+                            <Dropdown.Item href="">Hotels</Dropdown.Item>
+                            <Dropdown.Item href="">Restaurants</Dropdown.Item>
+                            <Dropdown.Item href="">Pubs</Dropdown.Item>
+                            <Dropdown.Item href="">Confectioneries</Dropdown.Item>
+                            <Dropdown.Item href="">Stores</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Sport"
+                                 icon={<i className={"fas fa-baseball-ball icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Education"
+                                 icon={<i className={"fas fa-graduation-cap icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Care"
+                                 icon={<FavoriteIcon/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Events"
+                                 icon={<i className={"fas fa-calendar-alt icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+
+                    <Dropdown className={classes.dropdown}>
+                        <Dropdown.Toggle variant="" id="">
+                            <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="News"
+                                 icon={<i className={"fas fa-newspaper icons"}/>}/>
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                    <Tab classes={{wrapper: classes.tab, root: classes.tab}} style={{marginLeft: "2%"}}
+                         label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
+                         icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
+                    <Tab classes={{wrapper: classes.tab, root: classes.tab}} style={{marginLeft: "2%"}} label="Log out"
+                         icon={<i className={"fas fa-times-circle icons"} onClick={sendLogOut}/>}/>
+                </div>
+            </>
+        )
+    }
+
     return (
         <>
             <div className="#root">
                 <a href="/"> <img src={logo} className="logo"/></a>
 
-                <Dropdown>
-                    <Dropdown.Toggle variant="" id="" className="dropdown">
-                        <Tab label="Health" icon={<i className={"fas fa-medkit icons"}/>}/>
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Health"
+                             icon={<i className={"fas fa-medkit icons"}/>}/>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="">Vet</Dropdown.Item>
@@ -38,11 +161,21 @@ function Top() {
                     </Dropdown.Menu>
                 </Dropdown>
 
-                <Tab label="Friends" icon={<i className={"fas fa-paw icons"}/>}/>
 
-                <Dropdown>
-                    <Dropdown.Toggle variant="" id="" className="dropdown">
-                        <Tab label="Places" icon={<i className={"fas fa-map-marker-alt icons"}/>}/>
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Friends"
+                             icon={<i className={"fas fa-paw icons"}/>}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Places"
+                             icon={<i className={"fas fa-map-marker-alt icons"}/>}/>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/place/new">Recommend new place</Dropdown.Item>
@@ -53,16 +186,61 @@ function Top() {
                         <Dropdown.Item href="">Stores</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-                <Tab label="Sport" icon={<i className={"fas fa-baseball-ball icons"}/>}/>
-                <Tab label="Education" icon={<i className={"fas fa-graduation-cap icons"}/>}/>
-                <Tab label="Care" icon={<FavoriteIcon/>}/>
-                <Tab label="News" icon={<i className={"fas fa-newspaper icons"}/>}/>
-                <Tab label="Events" icon={<i className={"fas fa-calendar-alt icons"}/>}/>
-                <Tab label="Registration" icon={<i className={"fas fa-registered icons"}/>} href="/registration"/>
-                <Tab label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
-                     icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
-                <Tab label="Log out" icon={<i className={"fas fa-times-circle icons"} onClick={sendLogOut}/>}/>
 
+
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Sport"
+                             icon={<i className={"fas fa-baseball-ball icons"}/>}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Education"
+                             icon={<i className={"fas fa-graduation-cap icons"}/>}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Care" icon={<FavoriteIcon/>}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Events"
+                             icon={<i className={"fas fa-calendar-alt icons"}/>}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+
+                <Dropdown className={classes.dropdown}>
+                    <Dropdown.Toggle variant="" id="">
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="News"
+                             icon={<i className={"fas fa-newspaper icons"}/>}/>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                    </Dropdown.Menu>
+                </Dropdown>
+
+                <Tab classes={{wrapper: classes.tab, root: classes.tab,}} style={{marginLeft: "2%"}}
+                     label="Registration" icon={<i className={"fas fa-registered icons"}/>} href="/registration"/>
+                <Tab classes={{wrapper: classes.tab, root: classes.tab}} style={{marginLeft: "2%"}}
+                     label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
+                     icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
             </div>
         </>
     );
