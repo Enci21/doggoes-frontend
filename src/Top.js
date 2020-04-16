@@ -1,11 +1,12 @@
 import logo from "./logo1.png";
-import React from "react";
+import React, {useContext} from "react";
 import Axios from "axios";
 import Tab from "@material-ui/core/Tab";
 import './App.css';
 import {Dropdown} from "react-bootstrap";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import {makeStyles} from "@material-ui/core";
+import {PlaceContext} from "./PlaceContext";
 
 const useStyles = makeStyles({
     dropdown: {
@@ -19,6 +20,20 @@ const useStyles = makeStyles({
 });
 
 function Top() {
+
+    const {setPlaces} = useContext(PlaceContext);
+
+    const getPlaces = () => {
+        fetch("http://localhost:8080/place/all")
+            .then(response =>
+                response.json()).then(data => {
+            console.log(data);
+            window.location = '/place/all';
+            setPlaces(data);
+        })
+            .catch(error => alert(error));
+    };
+
 
     const sendLogOut = e => {
         e.preventDefault();
@@ -72,7 +87,7 @@ function Top() {
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/place/new">Recommend new place</Dropdown.Item>
-                        <Dropdown.Item href="/place/all">All</Dropdown.Item>
+                        <Dropdown.Item onClick={getPlaces}>All</Dropdown.Item>
                         <Dropdown.Item href="">Hotels</Dropdown.Item>
                         <Dropdown.Item href="">Restaurants</Dropdown.Item>
                         <Dropdown.Item href="">Pubs</Dropdown.Item>
@@ -158,7 +173,6 @@ function Top() {
                              style={{marginLeft: "2%", marginTop: "10px"}}
                              label="Registration" icon={<i className={"fas fa-registered icons"}/>}
                              href="/registration"/>
-
                     </div>
                 }
             </div>

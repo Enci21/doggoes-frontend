@@ -1,9 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
+import {PlaceContext} from "./PlaceContext";
+
 
 function PlaceCard() {
 
+    const {places} = useContext(PlaceContext);
     return (
-        <h1>hhhhhhhhhhhhhhhhhhhhhhhh</h1>
+        <div>
+            <h1>bazd meg magad kérlek</h1>
+            <div>
+                {places.map(place =>
+                    <p>{place}</p>
+                )}
+            </div>
+        </div>
     );
 }
 
