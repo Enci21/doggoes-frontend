@@ -15,9 +15,9 @@ function homePage() {
     };
 
     return (
-        <div style={{float: "left"}}>
-            <h1 style={{fontWeight: "bold"}}>Today most populars</h1>
-        </div>
+
+        <h1 style={{fontWeight: "bold", float: "left"}}>Today most populars</h1>
+
     )
 }
 
