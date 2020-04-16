@@ -24,9 +24,9 @@ function Top() {
         e.preventDefault();
         Axios.get("http://localhost:8080/log/out")
             .then(response => {
-                if (response.status) {
+                if (response.status === 200) {
                     localStorage.removeItem("username");
-                    alert("OK")
+                    window.location = '/home';
                 }
             })
             .catch(error => alert(error));
@@ -39,7 +39,7 @@ function Top() {
     return (
         <>
             <div className="#root">
-                <a href="/"> <img src={logo} className="logo"/></a>
+                <a href="/home"> <img src={logo} className="logo"/></a>
 
                 <Dropdown className={classes.dropdown}>
                     <Dropdown.Toggle variant="" id="">
@@ -72,6 +72,7 @@ function Top() {
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/place/new">Recommend new place</Dropdown.Item>
+                        <Dropdown.Item href="/place/all">All</Dropdown.Item>
                         <Dropdown.Item href="">Hotels</Dropdown.Item>
                         <Dropdown.Item href="">Restaurants</Dropdown.Item>
                         <Dropdown.Item href="">Pubs</Dropdown.Item>
@@ -148,15 +149,16 @@ function Top() {
                     :
 
                     <div>
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}}
+                             style={{marginLeft: "2%", marginTop: "10px"}}
+                             label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
+                             icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
+
                         <Tab classes={{wrapper: classes.tab, root: classes.tab,}}
                              style={{marginLeft: "2%", marginTop: "10px"}}
                              label="Registration" icon={<i className={"fas fa-registered icons"}/>}
                              href="/registration"/>
 
-                        <Tab classes={{wrapper: classes.tab, root: classes.tab}}
-                             style={{marginLeft: "2%", marginTop: "10px"}}
-                             label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
-                             icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
                     </div>
                 }
             </div>

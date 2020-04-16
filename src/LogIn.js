@@ -9,8 +9,8 @@ function LogIn(props) {
         Axios.post("http://localhost:8080/auth/signin", user)
             .then(response => {
                 if (response.status === 200) {
-                    alert("OK");
                     localStorage.setItem("username", user.username);
+                    window.location = "/welcome";
                 }
             })
             .catch(error => alert(error));
