@@ -21,7 +21,7 @@ function Geolocation() {
     const mapRef = useRef();
 
     return (
-        <div style={{height: "150%"}}>
+        <div style={{height: "150%", marginTop: "20px"}}>
             <ReactMapGl
                 {...viewport}
                 maxZoom={20}

@@ -16,7 +16,6 @@ const useStyles = makeStyles({
     tab: {
         minWidth: '85px',
     },
-
 });
 
 function Top() {
@@ -34,7 +33,6 @@ function Top() {
     };
 
     const classes = useStyles();
-
 
     const isLoggedIn = localStorage.getItem("username");
 
@@ -136,11 +134,13 @@ function Top() {
 
                     ?
                     <div>
-                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} style={{marginLeft: "2%"}}
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}}
+                             style={{marginLeft: "2%", marginTop: "10px"}}
                              label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
                              icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
 
-                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} style={{marginLeft: "2%"}}
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}}
+                             style={{marginLeft: "2%", marginTop: "10px"}}
                              label="Log out"
                              icon={<i className={"fas fa-times-circle icons"} onClick={sendLogOut}/>}/>
                     </div>
@@ -148,11 +148,13 @@ function Top() {
                     :
 
                     <div>
-                        <Tab classes={{wrapper: classes.tab, root: classes.tab,}} style={{marginLeft: "2%"}}
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab,}}
+                             style={{marginLeft: "2%", marginTop: "10px"}}
                              label="Registration" icon={<i className={"fas fa-registered icons"}/>}
                              href="/registration"/>
 
-                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} style={{marginLeft: "2%"}}
+                        <Tab classes={{wrapper: classes.tab, root: classes.tab}}
+                             style={{marginLeft: "2%", marginTop: "10px"}}
                              label={localStorage.getItem("username") != null ? localStorage.getItem("username") : "Log in"}
                              icon={<i className={"fas fa-smile-beam icons"}/>} href="/auth/signin"/>
                     </div>
