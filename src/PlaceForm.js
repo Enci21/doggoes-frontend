@@ -4,6 +4,7 @@ import {Form} from "react-bootstrap";
 
 function PlaceForm() {
     let [types, setTypes] = useState([]);
+    let [error, setError] = useState(null);
     const [place, setPlace] = useState({
         name: "",
         type: "",
@@ -24,7 +25,8 @@ function PlaceForm() {
             .then(response => {
                 setTypes(response.data);
             })
-            .catch(error => alert("Nem jöttek typok vagy valami" + error));
+            .catch(error =>
+                error => setError(error.response.data.message));
     };
 
 
@@ -36,12 +38,14 @@ function PlaceForm() {
                     alert("OK");
                 }
             })
-            .catch(error => alert(error));
+            .catch(error => setError(error.response.data.message));
     };
 
     return (
         <div className="reg-card" onMouseOver={getTypeEnums}>
-            <h1>Please recommend a new place dilom.</h1>
+            <h1>Recommend a new place!</h1>
+            {(error !== null) ?
+                <div style={{color: 'red'}}><p>{error}</p></div> : null}
             <fieldset>
                 <div>
                     <form onSubmit={sendPlaceData}>
