@@ -2,24 +2,31 @@ import React, {useState} from "react";
 import Axios from "axios";
 import './regForm.css';
 
-function RegistrationForm() {
+function RegistrationForm(props) {
 
     const [user, setUser] = useState({username: "", password: "", email: "", pwagain: ""});
+    const [error, setError] = useState(null);
     const showUserDetails = e => {
         e.preventDefault();
         Axios.post("http://localhost:8080/registration", user)
             .then(response => {
                 if (response.status) {
                     alert("OK");
+                    props.history.push("/home");
                 }
             })
-            .catch(error => alert(error));
+            .catch(
+                error => setError(error.response.data.message));
     };
 
     return (
         <fieldset className="reg-card">
             <p className="input-names">Sign up</p>
-            <form onSubmit={showUserDetails}>
+
+            {(error !== null) ?
+                <div style={{color: 'red'}}><p>{error}</p></div> : null}
+
+            <form onSubmit={showUserDetails} noValidate>
                 <div>
                     <input
                         required

@@ -3,6 +3,7 @@ import Axios from "axios";
 
 function LogIn(props) {
     const [user, setUser] = useState({username: "", password: ""});
+    const [error, setError] = useState(null);
 
     const showUserDetails = e => {
         e.preventDefault();
@@ -10,15 +11,19 @@ function LogIn(props) {
             .then(response => {
                 if (response.status === 200) {
                     localStorage.setItem("username", user.username);
-                    window.location = "/welcome";
+                    props.history.push("/welcome");
                 }
+
             })
-            .catch(error => alert(error));
+            .catch(
+                error => setError(error.response.data.message));
     };
 
     return (
         <form className="reg-card" onSubmit={showUserDetails}>
             <p className="input-names" style={{selfAlign: "center"}}>Log in</p>
+            {(error !== null) ?
+                <div style={{color: 'red'}}><p>{error}</p></div> : null}
             <div>
                 <input
                     required
