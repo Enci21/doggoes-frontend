@@ -11,6 +11,7 @@ import HomePage from "./HomePage";
 import PlaceCard from "./PlaceCard";
 import WelcomePage from "./WelcomePage";
 import PlaceProvider from "./PlaceContext";
+import UserActivationPage from "./UserActivationPage";
 
 function App() {
     const [uName, setUName] = useState({uname: localStorage.getItem("username" || "")});
@@ -26,7 +27,7 @@ function App() {
                     <Route path="/place/new" render={(props) => <PlaceForm {...props} />}/>
                     <Route path="/place/all" render={(props) => <PlaceCard {...props} />}/>
                     <Route path="/welcome" render={(props) => <WelcomePage {...props} />}/>
-
+                    <Route path="/activate/:userId" component={UserActivationPage}/>
                 </Switch>
             </Router>
             <Geolocation/>

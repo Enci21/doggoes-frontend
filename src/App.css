@@ -44,6 +44,28 @@ body {
     font-size: 25px;
 }
 
+.place-card {
+    background-color: rgba(171, 178, 180, 0.84);
+    opacity: 93%;
+    width: 360px;
+    height: 220px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    -webkit-border-radius: 5px;
+    color: rgba(0, 0, 0, 0.9);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    float: left;
+}
+
 .button {
     font-family: 'Raleway', sans-serif;
     cursor: url(paw.png) 4 12, auto !important;
