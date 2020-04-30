@@ -21,12 +21,12 @@ function Geolocation() {
     const mapRef = useRef();
 
     return (
-        <div style={{height: "150%", marginTop: "800px"}}>
+        <div style={{height: "250%", marginTop: "800px"}}>
             <ReactMapGl
                 {...viewport}
                 maxZoom={20}
                 minZoom={8}
-                mapboxApiAccessToken={"pk.eyJ1IjoiZW5jaTIxIiwiYSI6ImNrODdjMWE5bTBkNXczZnBycXIycmo5cjgifQ.epS5ZM8enXRO3IvLbWaObQ"}
+                mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
                 mapStyle="mapbox://styles/enci21/ck8xbp6bb43m91ipm1d7xi9uh"
                 onViewportChange={newViewport => {
                     setViewport({...newViewport});

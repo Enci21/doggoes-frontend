@@ -21,19 +21,24 @@ const useStyles = makeStyles({
 
 function Top() {
 
+    /*
+        const placeOnClickEvents = function () {
+            getPlaces();
+            PlaceCard
+        };
+    */
+
     const {setPlaces} = useContext(PlaceContext);
 
     const getPlaces = () => {
-        fetch("http://localhost:8080/place/all")
-            .then(response =>
-                response.json()).then(data => {
-            console.log(data);
-            window.location = '/place/all';
-            setPlaces(data);
-        })
+        Axios.get("http://localhost:8080/place/all")
+            .then(response => {
+                console.log(response.data);
+                setPlaces(response.data);
+            })
+
             .catch(error => alert(error));
     };
-
 
     const sendLogOut = e => {
         e.preventDefault();
@@ -82,12 +87,12 @@ function Top() {
 
                 <Dropdown className={classes.dropdown}>
                     <Dropdown.Toggle variant="" id="">
-                        <Tab classes={{wrapper: classes.tab, root: classes.tab}} label="Places"
+                        <Tab onClick={getPlaces} classes={{wrapper: classes.tab, root: classes.tab}} label="Places"
                              icon={<i className={"fas fa-map-marker-alt icons"}/>}/>
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="/place/new">Recommend new place</Dropdown.Item>
-                        <Dropdown.Item onClick={getPlaces}>All</Dropdown.Item>
+                        <Dropdown.Item href="/place/all">All</Dropdown.Item>
                         <Dropdown.Item href="">Hotels</Dropdown.Item>
                         <Dropdown.Item href="">Restaurants</Dropdown.Item>
                         <Dropdown.Item href="">Pubs</Dropdown.Item>
